@@ -14,7 +14,8 @@ public class Principal {
             System.out.println("1) Agregar elementos");
             System.out.println("2) Mostrar lista");
             System.out.println("3) Eliminar elemento");
-            System.out.println("4) Salir");
+            System.out.println("4. Modificar elemento");
+            System.out.println("5) Salir");
             System.out.print("Opción: ");
 
             switch (sc.nextInt()) {
@@ -28,6 +29,9 @@ public class Principal {
                     metodos.eliminar(lista, sc);
                     break;
                 case 4:
+                    metodos.modificar(lista, sc);
+                    break;
+                case 5:
                     System.out.println("Hasta luego.");
                     seguir = false;
                     break;

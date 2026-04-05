@@ -29,24 +29,49 @@ public class ListaSimple {
         }
     }
 
-public void eliminar(ArrayList<ObjDato> lista, Scanner sc) {
-    if (lista.isEmpty()) {
-        System.out.println("La lista está vacía.");
-        return;
-    }
-
-    System.out.print("¿Qué número desea eliminar? ");
-    int dato = sc.nextInt();
-
-    for (int i = 0; i < lista.size(); i++) {
-        if (lista.get(i).getNumero() == dato) {
-            lista.remove(i);
-            System.out.println("Elemento " + dato + " eliminado.");
+    public void modificar(ArrayList<ObjDato> lista, Scanner sc) {
+        if (lista.isEmpty()) {
+            System.out.println("La lista está vacía.");
             return;
         }
+
+        System.out.print("¿Qué número desea modificar? ");
+        int dato = sc.nextInt();
+
+        for (int i = 0; i < lista.size(); i++) {
+            if (lista.get(i).getNumero() == dato) {
+
+                System.out.print("Ingrese el nuevo número: ");
+                int nuevo = sc.nextInt();
+
+                lista.get(i).setNumero(nuevo);
+
+                System.out.println("Elemento " + dato + " modificado por " + nuevo);
+                return;
+            }
+        }
+
+        System.out.println("Elemento no encontrado.");
     }
 
-    System.out.println("Elemento no encontrado.");
-}
+    public void eliminar(ArrayList<ObjDato> lista, Scanner sc) {
+        if (lista.isEmpty()) {
+            System.out.println("La lista está vacía.");
+            return;
+        }
+
+        System.out.print("¿Qué número desea eliminar? ");
+        int dato = sc.nextInt();
+
+        for (int i = 0; i < lista.size(); i++) {
+            if (lista.get(i).getNumero() == dato) {
+                lista.remove(i);
+                System.out.println("Elemento " + dato + " eliminado.");
+                return;
+            }
+        }
+
+        System.out.println("Elemento no encontrado.");
+    }
 
 }
