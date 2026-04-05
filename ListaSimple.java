@@ -29,20 +29,24 @@ public class ListaSimple {
         }
     }
 
-    public void eliminar(ArrayList<ObjDato> lista, Scanner sc) {
-        if (lista.isEmpty()) {
-            System.out.println("La lista está vacía.");
+public void eliminar(ArrayList<ObjDato> lista, Scanner sc) {
+    if (lista.isEmpty()) {
+        System.out.println("La lista está vacía.");
+        return;
+    }
+
+    System.out.print("¿Qué número desea eliminar? ");
+    int dato = sc.nextInt();
+
+    for (int i = 0; i < lista.size(); i++) {
+        if (lista.get(i).getNumero() == dato) {
+            lista.remove(i);
+            System.out.println("Elemento " + dato + " eliminado.");
             return;
         }
-        System.out.print("¿Qué número desea eliminar? ");
-        int dato = sc.nextInt();
-        for (ObjDato o : lista) {
-            if (o.getNumero() == dato) {
-                lista.remove(o);
-                System.out.println("Elemento " + dato + " eliminado.");
-                return;
-            }
-        }
-        System.out.println("Elemento no encontrado.");
     }
+
+    System.out.println("Elemento no encontrado.");
+}
+
 }
